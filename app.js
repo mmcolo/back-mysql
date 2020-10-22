@@ -26,6 +26,13 @@ con. connect((err)=>{
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
+app.get('api/users/je',(req, res)=>{
+    let blue = 'RayanDaxton'
+    let sql = "SELECT * FROM utilisateur WHERE "+blue;
+    console.log(sql);
+    res.status(200).json({sql});
+});
+
 app.get('/api/users', (req, res)=>{
     let sql="SELECT * FROM  utilisateur"
     con.query(sql, (err, result)=>{
